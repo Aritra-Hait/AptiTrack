@@ -1,0 +1,143 @@
+@import url('../../vars.css');
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+    margin: 79px 10px 20px 10px;
+    width: 100%;
+
+}
+
+.heading {
+    margin: 20px;
+    font-size: 30px;
+    color: rgba(240, 248, 255, 0.773);
+    text-decoration: underline;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+
+.list {
+    list-style: none;
+
+}
+
+.list li,
+.explanation li {
+    margin: 10px;
+
+    font-weight: 650;
+    letter-spacing: 1.5px;
+    padding: 20px;
+    font-family: var(--font-roboto);
+    font-size: 22px;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--text-color-tertiary);
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    align-items: center;
+    margin-top: 25px;
+
+}
+
+.eachOption,
+.submit {
+    font-size: 20px;
+    padding: 15px;
+    background: none;
+    color: rgba(89, 248, 253, 0.908);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    border-radius: 10px;
+    border-color: var(--text-color-tertiary);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.eachOption:hover {
+    background: var(--background-color2);
+    transform: scale(1.1);
+}
+
+.score {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: rgb(11, 205, 134);
+    font-family: var(--font-outfit);
+    border: 2px solid rgb(9, 167, 109);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    margin-left: 23%;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.submit {
+    margin-top: 20px;
+    background-color: rgb(0, 244, 118);
+    color: var(--background-color);
+    border: black;
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-weight: 1000;
+}
+
+.submit:hover {
+    background-color: #2bffbc;
+    transform: scale(1.1);
+}
+
+.explanation {
+    list-style: none;
+}
+
+.result {
+    margin-top: 50px;
+}
+
+.ans {
+    color: rgba(0, 244, 118, 0.764);
+}
+
+.back {
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    border: 2px solid;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: rgba(255, 0, 0, 0.738);
+    color: rgba(252, 96, 49, 0.992);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.back:hover {
+    background: rgba(255, 136, 0, 0.911);
+    color: var(--background-color);
+    transform: scale(1.1);
+}
+
+.resultContainer {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    width: 100%;
+}
+
+.end {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
