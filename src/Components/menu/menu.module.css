@@ -85,7 +85,12 @@
     transform: scale(1.1);
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 830px) {
+    .menu {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
     .options {
         width: 100%;
         flex-direction: row;

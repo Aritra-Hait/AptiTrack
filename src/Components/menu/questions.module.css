@@ -141,3 +141,18 @@
     justify-content: center;
     margin-top: 20px;
 }
+
+@media screen and (max-width: 830px) {
+    .resultContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .score {
+        margin-left: 5px;
+    }
+
+
+}
