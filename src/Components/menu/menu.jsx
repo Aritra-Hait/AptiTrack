@@ -33,6 +33,8 @@ function Menu() {
         setLoading(false);
     };
 
+    const closeQuestions = () => setQuestions([]);
+
     return (
         <section className={styles.menu} id="menu">
             <h2 className={styles.heading}>Choose the topic of questions</h2>
@@ -54,7 +56,7 @@ function Menu() {
 
             {questions.length > 0 && (
                 <section className={styles.questions} ref={questionsRef}>
-                    <Questions questions={questions} />
+                    <Questions questions={questions} goBack={closeQuestions} />
                 </section>
             )}
 

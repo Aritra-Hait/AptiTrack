@@ -1,17 +1,29 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from './questions.module.css';
+import { getImageUrl } from "../../utils";
 
-function Questions({ questions }) {
+function Questions({ questions, goBack }) {
     const [selectedOptions, setSelectedOptions] = useState(Array(questions.length).fill(null));
-    const [score, setScore] = useState(null)
+    const [score, setScore] = useState(null);
+    const [seconds, setSeconds] = useState(0);
     const resultRef = useRef(null);
     const handleOptionClick = (questionIndex, option) => {
         const newSelections = [...selectedOptions];
         newSelections[questionIndex] = option;
         setSelectedOptions(newSelections);
     };
+    const intervalRef = useRef(null);
+
+    useEffect(() => {
+        intervalRef.current = setInterval(() => {
+            setSeconds((s) => s + 1);
+        }, 1000);
+
+        return () => clearInterval(intervalRef.current);
+    }, []);
 
     const handleSubmit = () => {
+        clearInterval(intervalRef.current);
         let finalScore = 0;
         questions.forEach((q, index) => {
             if (selectedOptions[index] === q.answer) {
@@ -19,15 +31,29 @@ function Questions({ questions }) {
             }
         });
         setScore(finalScore);
-
         setTimeout(() => {
             resultRef.current?.scrollIntoView({ behavior: "smooth" });
         }, 100);
 
     };
 
+    const handleBackClick = () => {
+        setTimeout(goBack, 1000);
+    };
+
+    const formatTime = (secs) => {
+        const minutes = Math.floor(secs / 60);
+        const seconds = secs % 60;
+        return `${minutes.toString().padStart(2, '0')} minutes ${seconds.toString().padStart(2, '0')} seconds`;
+    };
+
     return (
         <div className={styles.container}>
+
+            <div className={styles.time}>
+                <h3 className={styles.timer}>Time :  {formatTime(seconds)}</h3>
+                <img src={getImageUrl("stopwatch.png")} alt="Stopwatch" className={styles.icon} />
+            </div>
             <h2 className={styles.heading}>Questions</h2>
             <ul className={styles.list}>
                 {questions.map((q, index) => (
@@ -53,28 +79,35 @@ function Questions({ questions }) {
 
             <button className={styles.submit} onClick={handleSubmit}>Submit</button>
 
-            {score !== null && <section className={styles.result} ref={resultRef}>
-                <div className={styles.resultContainer}>
-                    <a href="#header" className={styles.back}>Back to Menu</a>
-                    <div className={styles.score}>Final Score : {score}/{questions.length}</div>
-                </div>
-                <h2 className={styles.heading}>Answers and Explanation</h2>
-                <ul className={styles.explanation}>
+            {
+                score != null && <section className={styles.result} ref={resultRef}>
+                    <div className={styles.resultContainer}>
+                        <a href="#header" onClick={handleBackClick} className={styles.back}>Back to Menu</a>
 
-                    {questions.map((q, index) => (
-                        <li className={styles.quest} key={index}>
-                            <div>Question {index + 1} :</div>
-                            <div className={styles.ans}>
-                                Correct Answer :  {q.answer} <br /> Explanation : {q.explanation}</div>
-                        </li>
-                    ))}
-                </ul>
-                <div id="end" className={styles.end}>
-                    <a href="#header" className={styles.back}>Back to Menu</a>
-                </div>
+                        <div className={styles.resultRight}>
+                            <div className={styles.score}>Final Score : {score}/{questions.length}</div>
+                            <div className={styles.timeTaken}>Time Taken : {formatTime(seconds)}</div>
+                        </div>
+                    </div>
+
+                    <h2 className={styles.heading}>Answers and Explanation</h2>
+                    <ul className={styles.explanation}>
+
+                        {questions.map((q, index) => (
+                            <li className={styles.quest} key={index}>
+                                <div>Question {index + 1} :</div>
+                                <div className={styles.ans}>
+                                    Correct Answer :  {q.answer} <br /> Explanation : {q.explanation}</div>
+                            </li>
+                        ))}
+                    </ul>
+                    <div id="end" className={styles.end}>
+                        <a href="#header" onClick={handleBackClick} className={styles.back}>Back to Menu</a>
+                    </div>
 
 
-            </section>}
+                </section>
+            }
         </div >
     );
 }

@@ -67,7 +67,8 @@
     transform: scale(1.1);
 }
 
-.score {
+.score,
+.timeTaken {
     margin-top: 30px;
     margin-bottom: 30px;
     font-size: 30px;
@@ -105,6 +106,26 @@
     margin-top: 50px;
 }
 
+.resultContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.resultRight {
+    display: flex;
+}
+
+.resultRight .score,
+.resultRight .timeTaken,
+.back {
+    width: fit-content;
+    white-space: nowrap;
+    margin: 20px;
+}
+
+
 .ans {
     color: rgba(0, 244, 118, 0.764);
 }
@@ -129,12 +150,6 @@
     transform: scale(1.1);
 }
 
-.resultContainer {
-    display: flex;
-    align-items: center;
-    color: var(--text-color);
-    width: 100%;
-}
 
 .end {
     display: flex;
@@ -142,18 +157,70 @@
     margin-top: 20px;
 }
 
+.timeTaken {
+    border: 2px solid #16b1d7;
+    color: #34caf0;
+}
+
+.timer {
+    margin: 30px;
+    color: #34caf0;
+    background-color: rgba(52, 202, 240, 0.1);
+    border: 2px solid #34caf0;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: var(--font-outfit);
+    box-shadow: 0 0 8px rgba(52, 202, 240, 0.2);
+}
+
+.time {
+    display: flex;
+}
+
+.icon {
+
+    height: 100px;
+    width: auto;
+    margin-left: 0;
+}
+
 @media screen and (max-width: 830px) {
     .resultContainer {
-        display: flex;
         flex-direction: column;
-        width: 100%;
         align-items: center;
+        gap: 10px;
     }
 
-    .score {
-        margin-left: 0px;
-        padding: 20px;
+    .resultRight {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
     }
 
+    .resultRight .score,
+    .resultRight .timeTaken {
+        width: 80%;
+        max-width: 320px;
+        margin: 0;
+        font-size: 20px;
+        white-space: normal;
+        word-break: break-word;
+        padding: 16px 18px;
+        text-align: center;
+    }
 
+    .back {
+        margin: 0;
+        width: fit-content;
+    }
+
+    .timer {
+        margin: 20px 0;
+        font-size: 18px;
+        padding: 8px 16px;
+    }
 }
