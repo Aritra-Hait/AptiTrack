@@ -95,7 +95,7 @@ function Questions({ questions, goBack }) {
 
                         {questions.map((q, index) => (
                             <li className={styles.quest} key={index}>
-                                <div>Question {index + 1} :</div>
+                                <div>Question {index + 1} : {q.question}</div>
                                 <div className={styles.ans}>
                                     Correct Answer :  {q.answer} <br /> Explanation : {q.explanation}</div>
                             </li>
