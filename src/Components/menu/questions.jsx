@@ -15,12 +15,13 @@ function Questions({ questions, goBack }) {
     const intervalRef = useRef(null);
 
     useEffect(() => {
+        setSeconds(0);
         intervalRef.current = setInterval(() => {
             setSeconds((s) => s + 1);
         }, 1000);
 
         return () => clearInterval(intervalRef.current);
-    }, []);
+    }, [questions]);
 
     const handleSubmit = () => {
         clearInterval(intervalRef.current);
