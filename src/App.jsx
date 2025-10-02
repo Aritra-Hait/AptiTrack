@@ -1,13 +1,18 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import './App.css'
-import Header from './Components/header/header.jsx'
-import Menu from './Components/menu/menu.jsx'
+import Home from './pages/home.jsx'
+import Dashboard from './pages/dashboard.jsx'
 function App() {
 
   return (
     <div className='App'>
-      <Header />
-      <Menu />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/performanceDashboard" element={<Dashboard />} />
+        </Routes>
+      </Router>
     </div>
 
   )

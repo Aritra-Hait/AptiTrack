@@ -6,12 +6,19 @@ import Questions from "./questions.jsx";
 
 function Menu() {
     const [clicked, setClicked] = useState(null);
+    const [selectedTopic, setSelectedTopic] = useState(null);
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(false);
     const questionsRef = useRef(null);
 
     const handleButtonClick = (id) => {
-        setClicked(clicked === id ? null : id);
+        if (clicked === id) {
+            setClicked(null);
+            setSelectedTopic(null);
+        } else {
+            setClicked(id);
+            setSelectedTopic(topics[id]);
+        }
     };
 
     const handlePlayClick = async () => {
@@ -56,7 +63,7 @@ function Menu() {
 
             {questions.length > 0 && (
                 <section className={styles.questions} ref={questionsRef}>
-                    <Questions questions={questions} goBack={closeQuestions} />
+                    <Questions questions={questions} goBack={closeQuestions} topic={selectedTopic} />
                 </section>
             )}
 

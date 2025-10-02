@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from './questions.module.css';
+import { Link } from "react-router-dom";
 import { getImageUrl } from "../../utils";
 
-function Questions({ questions, goBack }) {
+function Questions({ questions, goBack, topic }) {
     const [selectedOptions, setSelectedOptions] = useState(Array(questions.length).fill(null));
     const [score, setScore] = useState(null);
     const [seconds, setSeconds] = useState(0);
@@ -23,20 +24,48 @@ function Questions({ questions, goBack }) {
         return () => clearInterval(intervalRef.current);
     }, [questions]);
 
+    const formatDate = (date) => {
+        return new Date(date).toLocaleString("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true
+        });
+    };
+
     const handleSubmit = () => {
         clearInterval(intervalRef.current);
+
         let finalScore = 0;
         questions.forEach((q, index) => {
             if (selectedOptions[index] === q.answer) {
                 finalScore++;
             }
         });
+
         setScore(finalScore);
+
+        let history = JSON.parse(localStorage.getItem("performanceHistory")) || [];
+
+        const attempt = {
+            topic: topic?.name || "Unknown",
+            score: finalScore,
+            total: questions.length,
+            timeTaken: seconds,
+            date: formatDate(new Date())
+        };
+
+        history.unshift(attempt);
+        console.log(history);
+        localStorage.setItem("performanceHistory", JSON.stringify(history));
+
         setTimeout(() => {
             resultRef.current?.scrollIntoView({ behavior: "smooth" });
         }, 100);
-
     };
+
 
     const handleBackClick = () => {
         setTimeout(goBack, 1000);
@@ -104,6 +133,7 @@ function Questions({ questions, goBack }) {
                     </ul>
                     <div id="end" className={styles.end}>
                         <a href="#header" onClick={handleBackClick} className={styles.back}>Back to Menu</a>
+                        <Link to="/performanceDashboard" className={styles.link}>View Performance History</Link>
                     </div>
 
 
