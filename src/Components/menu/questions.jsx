@@ -58,7 +58,7 @@ function Questions({ questions, goBack, topic }) {
         };
 
         history.unshift(attempt);
-        console.log(history);
+        // console.log(history);
         localStorage.setItem("performanceHistory", JSON.stringify(history));
 
         setTimeout(() => {
