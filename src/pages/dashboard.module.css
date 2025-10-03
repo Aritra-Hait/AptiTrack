@@ -83,8 +83,9 @@ a {
 
     .historyTable th,
     .historyTable td {
-        padding: 10px 12px;
+        padding: 12px 8px;
         font-size: 1.1rem;
+
     }
 
     .historyContainer h1 {
