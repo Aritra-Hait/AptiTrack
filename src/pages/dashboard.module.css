@@ -81,9 +81,13 @@ a {
 
 @media (max-width: 830px) {
 
+    .historyContainer {
+        padding: 30px 10px;
+    }
+
     .historyTable th,
     .historyTable td {
-        padding: 12px 10px;
+        padding: 12px 12px;
         font-size: 1.1rem;
 
     }
