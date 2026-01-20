@@ -1,0 +1,139 @@
+@import url('../../vars.css');
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+    margin-top: 60px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.heading {
+    text-align: center;
+    color: var(--text-color-tertiary);
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 1.75px;
+    text-transform: uppercase;
+    margin: 25px;
+}
+
+.options {
+    margin: 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+
+.topic,
+.play {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: none;
+    color: rgba(89, 248, 253, 0.908);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 20px;
+    font-family: var(--font-roboto);
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    border-color: var(--text-color-tertiary);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+
+.topic:hover {
+    transform: scale(1.2);
+    background: #fcc82ce1;
+    color: var(--background-color);
+    font-weight: 600;
+}
+
+.clicked {
+    border-color: var(--text-color-secondary);
+    border-width: 4px;
+}
+
+.play {
+    margin-top: 90px;
+    color: rgb(0, 0, 1);
+    font-weight: 700;
+    font-size: 25px;
+    background: #1cca90cc;
+    border-color: rgba(14, 195, 140, 0.91);
+    text-decoration: none;
+}
+
+.questions {
+    margin: 10px;
+    margin-top: 100px;
+    display: flex;
+
+}
+
+.play:hover {
+    background: #1cca90;
+    color: var(--background-color);
+    font-weight: 600;
+    transform: scale(1.1);
+}
+
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+}
+
+.loaderBox {
+    background: #111;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    margin: 1rem auto 0;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@media screen and (max-width: 830px) {
+    .menu {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .options {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+
+}

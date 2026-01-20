@@ -1,0 +1,21 @@
+.link {
+    margin: 10px 0;
+    position: absolute;
+    right: 20px;
+    text-decoration: none;
+    background-color: var(--background-color);
+    color: rgb(149, 231, 25);
+    border: 2px solid var(--success-color);
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 1.25px;
+    font-size: large;
+}
+
+.link:hover {
+    transform: scale(1.1);
+    background-color: var(--success-color);
+    color: black;
+    font-weight: 700;
+}

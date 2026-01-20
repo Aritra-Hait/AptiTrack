@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Profit and Loss",
+        "url": "https://aptitude-api.vercel.app/ProfitAndLoss"
+    },
+    {
+        "name": "Age",
+        "url": "https://aptitude-api.vercel.app/Age"
+    },
+    {
+        "name": "Permutation and Combination",
+        "url": "https://aptitude-api.vercel.app/PermutationAndCombination"
+    },
+    {
+        "name": "Simple Interest",
+        "url": " https://aptitude-api.vercel.app/SimpleInterest"
+    },
+    {
+        "name": "Speed Time Distance",
+        "url": "https://aptitude-api.vercel.app/SpeedTimeDistance"
+    },
+    {
+        "name": "Calendars",
+        "url": "https://aptitude-api.vercel.app/Calendar"
+    },
+    {
+        "name": "Mixture and Alligation",
+        "url": "https://aptitude-api.vercel.app/MixtureAndAlligation"
+    },
+    {
+        "name": "Pipes and Cisterns",
+        "url": "https://aptitude-api.vercel.app/PipesAndCistern"
+    },
+    {
+        "name": "Random",
+        "url": "https://aptitude-api.vercel.app/Random"
+    }
+]
